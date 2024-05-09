@@ -1,8 +1,10 @@
 {
+  "type": "module",
   "name": "makemyday",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
+  "proxy": "https://graph.instagram.com",
   "scripts": {
     "start": "npm-run-all --parallel start:**",
     "start:server": "cd server && nodemon server",
@@ -12,9 +14,17 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "express": "^4.19.2"
+    "body-parser": "^1.20.2",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2",
+    "node-fetch": "^3.3.2",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "react-router-dom": "^6.23.0"
   },
   "devDependencies": {
+    "http-proxy-middleware": "^3.0.0",
     "nodemon": "^3.1.0",
     "npm-run-all": "^4.1.5"
   }
