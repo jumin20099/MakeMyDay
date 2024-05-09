@@ -2,7 +2,8 @@ import axios from 'axios';
 import cors from 'cors';
 import express from 'express'
 import { config } from 'dotenv';
-import {InstagramClient} from './instagram.js'
+import {InstagramClient} from './instagram.js';
+import {init,connect} from '../mysql/mysql.js';
 config();
 
 import fetch from 'node-fetch';
@@ -15,6 +16,9 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 const PORT = 3001;
+
+const conn = init();
+connect(conn);
 
 const clientId = 7258951234215357;
 const clientSecret = '7b8b5760e62f2dd4abc47149da80c10c';
@@ -71,6 +75,15 @@ app.post('/instagram/oauth', async (req, res) => {
     console.error('Error contacting Instagram API:', error);
     res.status(500).json({ error: 'Internal Server Error' });
   }
+});
+
+// 게시글 목록 보기
+app.get("/view", function (req, res) {
+  var sql = "select * from test";
+  conn.query(sql, function (err, result) {
+    if (err) console.log("query is not excuted: " + err);
+    else res.send(result);
+  });
 });
 
 // Express 앱을 HTTPS 서버에 연결합니다.

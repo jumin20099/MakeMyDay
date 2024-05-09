@@ -3,7 +3,6 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import "./index.css";
 import App from "./App"; // 'App' 컴포넌트를 가져옵니다.
 import InstagramCallback from "./callback";
-import Test from "./pages/test";
 import Main from "./Main";
 
 function Router() {
@@ -13,7 +12,6 @@ function Router() {
                 <Routes>
                     <Route path="/" element={<App />} />
                     <Route path="/callback/instagram" element={<InstagramCallback />} />
-                    <Route path="/test" element={<Test />} />
                     <Route path="/main" element={<Main></Main>}></Route>
                 </Routes>
             </BrowserRouter>
