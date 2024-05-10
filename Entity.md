@@ -1,32 +1,25 @@
 # MakeMyDay
 
 1. USER_TB
-    - 인스타그램 ID <!-- CAKE_TB와 중복? -->
-    - 생일자의 생일
-    - 케이크 닉네임 <!-- CAKE_TB의 케이크 닉네임과 중복됨(이래도 되는진 모름) -->
-    - 사용자 탈퇴 여부
-    - 사용자 가입 날짜 (YYYY-MM-DD HH:MM:SS) <!-- 사실상 가입 날짜 = 케이크 생성 날짜인데 나눌 필요가 잇는가? -->
+    - 유저 인덱스
+    - 인스타그램 ID
+    - 생년월일
+    - 사용자 가입 날짜 (YYYY-MM-DD HH:MM:SS)
 
-2. CAKE_TB
+1. CAKE_TB
+    - 케이크 인덱스
+    - 인스타그램 ID
+    - 케이크 닉네임
     - 생성 날짜 (YYY-MM-DD HH:MM:SS)
-    - 인스타그램 ID <!-- USER_TB와 중복? -->
-    - 케이크 닉네임 <!-- USER_TB와 중복? -->
     - 배경 타입(0~8)
     - 케이크 타입(0~8)
-    - 상태(Delete, Insert)
 
 3. LETTER_TB
+    - 촛불 인덱스
     - 등록 날짜 (YYYY-MM-DD HH:MM:SS)
     - 작성자 닉네임
     - 상태(Enable, Disable)
     - 촛불 타입(0~7)
-
-4. REPORT_TB
-    - 신고 날짜 (YYYY-MM-DD HH:MM:SS)
-    - 피신고자
-    - 신고자
-    - 사유
-    - 처리상태
 
 5. IMAGE_TB
     - 케이크 배경 1~9
