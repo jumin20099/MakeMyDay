@@ -1,3 +1,5 @@
+// $env:NODE_TLS_REJECT_UNAUTHORIZED="0"  ssl 인증서 검증 비활성화
+// $env:NODE_EXTRA_CA_CERTS="C:/Users/jumin/AppData/Local/mkcert/rootCA.pem"
 import axios from 'axios';
 import cors from 'cors';
 import express from 'express'
@@ -28,7 +30,7 @@ const redirectUri = "https://localhost:3000/callback/instagram"
 // mkcert로 생성한 인증서와 키의 경로를 지정합니다.
 const options = {
   key: fs.readFileSync('../cert/localhost-key.pem'),
-  cert: fs.readFileSync('../cert/localhost.pem')
+  cert: fs.readFileSync('../cert/localhost.pem'),
 };
 
 app.use(express.json());
@@ -65,16 +67,16 @@ app.post('/instagram/oauth', async (req, res) => {
     });
 
     const data = await response.json(); // Instagram API 응답
-    
-    const accessToken = data.access_token;
 
     // 클라이언트에 Instagram API 응답 전달
-    res.json(data);
-    res.json({access_token: accessToken});
+    res.json({
+      ...data,
+      access_token: data.access_token
+    });
   } catch (error) {
     console.error('Error contacting Instagram API:', error);
     res.status(500).json({ error: 'Internal Server Error' });
-  }
+  } // 쿠키로 로그인 로그아웃 구현해야함
 });
 
 // 게시글 목록 보기

@@ -1,0 +1,10 @@
+{
+  "projects": {
+    "default": "make-my-day-df562"
+  },
+  "dataconnectEmulatorConfig": {
+    "postgres": {
+      "localConnectionString": "postgresql://localhost:5432?sslmode=disable"
+    }
+  }
+}
